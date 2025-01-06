@@ -1,0 +1,426 @@
+﻿@page
+@model LifeAssisttt.Pages.categoriesModel
+@{
+    ViewData["Title"] = "Home";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeAssist</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2, h3, h4, p {
+            margin: 0;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #002855;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+        }
+
+            .search-bar input {
+                padding: 10px;
+                font-size: 1rem;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                width: 300px;
+            }
+
+            .search-bar button {
+                background-color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+        .icons button {
+            background: white;
+            border: none;
+            font-size: 1.5rem;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* Main Section */
+        main {
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #002855;
+            margin-bottom: 15px;
+        }
+
+        /* Highlighted Boxes Section */
+        .highlighted-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .highlighted-box {
+            flex: 1;
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+            .highlighted-box img {
+                max-width: 100%;
+                height: 150px;
+                object-fit: cover;
+                margin-bottom: 10px;
+                border-radius: 8px;
+            }
+
+            .highlighted-box h3 {
+                margin-bottom: 10px;
+            }
+
+            .highlighted-box button {
+                background-color: white;
+                color: red;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+
+                .highlighted-box button:hover {
+                    background-color: darkred;
+                }
+
+        /* Recently Added Section */
+        .recent-products {
+            margin-bottom: 40px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+        }
+
+            .product-card img {
+                max-width: 100%;
+                height: 100px;
+                object-fit: cover;
+                margin-bottom: 10px;
+            }
+
+            .product-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .product-card button {
+                background-color: white;
+                color: red;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+
+                .product-card button:hover {
+                    background-color: darkred;
+                }
+
+        /* Footer Section */
+        .footer {
+            background-color: #002855; /* كحلي */
+            color: white;
+            padding: 30px 0;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+            .footer .footer-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .footer .logo-section img {
+                max-width: 150px;
+                margin-bottom: 15px;
+            }
+
+            .footer .social-icons {
+                display: flex;
+                gap: 15px;
+            }
+
+                .footer .social-icons a {
+                    color: white;
+                    font-size: 20px;
+                    text-decoration: none;
+                }
+
+                    .footer .social-icons a:hover {
+                        color: #f8f9fa;
+                    }
+
+            .footer .info-section,
+            .footer .contact-section {
+                text-align: left;
+            }
+
+                .footer .info-section h5,
+                .footer .contact-section h5 {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+
+            .footer ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                .footer ul li {
+                    margin-bottom: 5px;
+                }
+
+                    .footer ul li a {
+                        color: #f8f9fa;
+                        text-decoration: none;
+                    }
+
+                        .footer ul li a:hover {
+                            text-decoration: underline;
+                        }
+
+            .footer .contact-section p {
+                margin: 0;
+                font-size: 14px;
+            }
+    </style>
+
+    <script>
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product-card, .highlighted-box');
+
+            products.forEach(product => {
+                const productName = product.querySelector('h3').innerText.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script>
+        function addToCart(productName, rentPrice, sellPrice) {
+            const option = prompt(`Do you want to add ${productName} for Rent or Sale? (Enter 'rent' or 'sale')`).toLowerCase();
+
+            let price = 0;
+            if (option === 'rent') {
+                price = rentPrice;
+            } else if (option === 'sale') {
+                price = sellPrice;
+            } else {
+                alert("Invalid option. Please enter 'rent' or 'sale'.");
+                return;
+            }
+
+            // Retrieve cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Check if product already exists with the same option (Rent or Sale)
+            let existingProduct = cart.find(p => p.name === productName && p.option === option);
+
+            if (existingProduct) {
+                existingProduct.quantity++;
+            } else {
+                cart.push({ name: productName, price: price, quantity: 1, option: option });
+            }
+
+            // Save updated cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${productName} (${option}) has been added to the cart.`);
+        }
+    </script>
+    <script>
+       
+
+        function promptAddToCart(productName, rentPrice, sellPrice) {
+            const option = prompt(`Do you want to add ${productName} for Rent or Sale? (Enter 'rent' or 'sale')`).toLowerCase();
+
+            let price = 0;
+            if (option === 'rent') {
+                price = rentPrice;
+            } else if (option === 'sale') {
+                price = sellPrice;
+            } else {
+                alert("Invalid option. Please enter 'rent' or 'sale'.");
+                return;
+            }
+
+            // Retrieve cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Check if product already exists with the same option (Rent or Sale)
+            let existingProduct = cart.find(p => p.name === productName && p.option === option);
+
+            if (existingProduct) {
+                existingProduct.quantity++;
+            } else {
+                cart.push({ name: productName, price: price, quantity: 1, option: option });
+            }
+
+            // Save updated cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${productName} (${option}) has been added to the cart.`);
+        }
+
+    </script>
+    <script>
+
+     
+
+
+    </script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">LifeAssist</div>
+            <div class="search-bar">
+                <input id="searchInput" type="text" placeholder="Search all products...">
+                <button onclick="searchProducts()">🔍</button>
+            </div>
+            <div class="icons">
+                <button><a href="https://localhost:7272/Shared/Cart">🛒</a></button>
+            </div>
+        </div>
+      
+    </header>
+
+    <main>
+        <!-- Highlighted Boxes Section -->
+        <section class="highlighted-section">
+            <div class="highlighted-box">
+                <img src="~/project life assist - copy/bed.jpeg" />
+                <h3>ICU Bed</h3>
+                <p>Rent Price: 150 JD/Month</p>
+                <p>Sell Price: 1500 JD</p>
+                <button>View Product</button>
+                <button onclick="addToCart('ICU Bed', 150, 1500)">Add to Cart</button>
+            </div>
+            <div class="highlighted-box">
+                <img src="~/project life assist - copy/walker.jpeg" />
+                <h3>Walker</h3>
+                <p>Rent Price: 30 JD/Month</p>
+                <p>Sell Price: 70 JD</p>
+                <button>View Product</button>
+                <button onclick="addToCart('Walker', 30, 70)">Add to Cart</button>
+            </div>
+            <div class="highlighted-box">
+                <img src="~/project life assist - copy/screenshot_2023-06-13_at_5.37.25_pm.webp" />
+                <h3>Wheelchair</h3>
+                <p>Rent Price: 20 JD/Month</p>
+                <p>Sell Price: 60 JD</p>
+                <button>View Product</button>
+                <button onclick="addToCart('Wheelchair', 20, 60)">Add to Cart</button>
+
+            </div>
+        </section>
+
+        <section class="recent-products">
+            <h2>Newly Added Technologies Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+<img src="~/project life assist - copy/oxygen_1024x1024.webp" />
+                    <h3>Portable Oxygen</h3>
+                    <button><a href="https://localhost:7272/ViewBroduct">View Product </a></button>
+
+                </div>
+                <div class="product-card">
+                <img src="~/project life assist - copy/download.jpeg" />
+                    <h3>Blood Pressure Monitor</h3>
+                    <button>View Product</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="footer">
+        <div class="footer-content">
+            <div class="logo-section">
+                <img src="logo.png" alt="LifeAssist Logo">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="info-section">
+                <h5>INFORMATION</h5>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">About us</a></li>
+                </ul>
+            </div>
+            <div class="contact-section">
+                <h5>CONTACT</h5>
+                <p>Phone: +962791234568</p>
+                <p>Email: Lifeassist@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

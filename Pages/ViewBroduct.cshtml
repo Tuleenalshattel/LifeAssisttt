@@ -1,0 +1,287 @@
+﻿@page
+@model LifeAssisttt.Pages.Pages_ViewBroduct
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #002855;
+        text-align: left;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+    }
+
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        background: white;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .product-image img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-details {
+        flex: 1;
+        padding: 20px;
+    }
+
+        .product-details p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+    .pricing label {
+        font-weight: bold;
+        color: #002855;
+        font-size: 18px;
+    }
+
+    .actions label {
+        font-size: 16px;
+        color: #333;
+        margin-right: 20px;
+        display: inline-block;
+    }
+
+    .actions input[type="radio"] {
+        margin-right: 5px;
+        transform: scale(1.2);
+    }
+
+    .actions .btn {
+        background-color: #002855;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .actions .btn:hover {
+            background-color: #004080;
+        }
+
+    .product-features {
+        margin: 20px;
+        padding: 20px;
+        background:#f0f4f8 ;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+        .product-features h3 {
+            color: #002855;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-features ul {
+            list-style: none;
+            padding: 0;
+            flex: 1;
+        }
+
+            .product-features ul li {
+                margin-bottom: 8px;
+                font-size: 16px;
+                color: #555;
+            }
+
+        .product-features img {
+            max-width: 300px;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+    .shipping-policy,
+    .return-policy {
+        margin: 20px;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .shipping-policy h3,
+        .return-policy h3 {
+            color: #002855;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .shipping-policy p,
+        .return-policy p {
+            font-size: 16px;
+            color: #555;
+        }
+
+    /* الفوتر */
+    .footer {
+        background-color: #002855;
+        color: white;
+        padding: 30px 0;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+        .footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .footer .logo-section img {
+            max-width: 150px;
+            margin-bottom: 15px;
+        }
+
+        .footer .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+            .footer .social-icons a {
+                color: white;
+                font-size: 20px;
+                text-decoration: none;
+            }
+
+        .footer .info-section h5,
+        .footer .contact-section h5 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .footer ul li a {
+                color: #f8f9fa;
+                text-decoration: none;
+            }
+</style>
+
+<div class="product-page">
+    <h2>Portable Oxygen Concentrator Machine - 5 Litres</h2>
+    <div class="product-container">
+        <div class="product-image">
+
+            <img src="~/project life assist - copy/oxygen_1024x1024.webp" />
+        </div>
+        <div class="product-details">
+            <p>
+                <strong>Description:</strong>
+                A lightweight and portable medical oxygen concentrator. Suitable for home and hospital use.
+            </p>
+            <p><strong>Brand:</strong> NISCOMED</p>
+            <p><strong>Type:</strong> 5A</p>
+
+            <div class="pricing">
+                <div>
+                    <label>Sell Price: </label> 600 JD
+                </div>
+                <div>
+                    <label>Rent Price (Monthly): </label> 30 JD/Month
+                </div>
+            </div>
+
+            <div class="actions">
+                <label>
+                    <input type="radio" name="purchase-option" value="sell" /> Sell
+                </label>
+                <label>
+                    <input type="radio" name="purchase-option" value="rent" /> Rent
+                </label>
+                <button class="btn btn-outline-primary">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-features">
+        <h3>Features</h3>
+        <br >
+        <ul>
+            <li>Oxygen flow rate: 1-5 Litres per minute</li>
+            <li>Oxygen Concentration: 93% (+/- 3%)</li>
+            <li>Outlet Pressure: 5-8 PSI</li>
+            <li>Voltage: 220V ~ 50Hz</li>
+            <li>Power Consumption: 290W</li>
+            <li>Weight: 14 KG</li>
+            <li>Noise: < 48 dB</li>
+            <li>Size: 350mm(W) x 300mm(D) x 535mm(H)</li>
+        </ul>
+        <img src="~/project life assist - copy/oxygen_1024x1024.webp" />
+    </div>
+
+    <div class="shipping-policy">
+        <h3>Shipping Policy</h3>
+        <p>
+            Orders initiated and processed upon request from the customer. Please note that our shipping services, transportation, or loss/damage of items apply in accordance with the seller's terms.
+        </p>
+    </div>
+
+    <div class="return-policy">
+        <h3>Cancellation / Return / Exchange Policy</h3>
+        <p>
+            Refer to the Luffy Medical Return Policy for more details. Ensure all requests are submitted within 7 days of receiving the product.
+        </p>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-content">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <img src="~/project life assist - copy/logo.png" />
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <!-- Information Section -->
+        <div class="info-section">
+            <h5>INFORMATION</h5>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">About us</a></li>
+            </ul>
+        </div>
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h5>CONTACT</h5>
+            <p>Phone: +962791234568</p>
+            <p>Email: Lifeassist@gmail.com</p>
+        </div>
+    </div>
+</div>

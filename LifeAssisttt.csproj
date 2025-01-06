@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\project life assist - Copy\bed.jpeg" />
+    <Content Remove="wwwroot\project life assist - Copy\class digram.drawio.png" />
+    <Content Remove="wwwroot\project life assist - Copy\class lifeassist.jpg" />
+    <Content Remove="wwwroot\project life assist - Copy\DC UC.drawio.png" />
+    <Content Remove="wwwroot\project life assist - Copy\download (1).jpeg" />
+    <Content Remove="wwwroot\project life assist - Copy\download (2).jpeg" />
+    <Content Remove="wwwroot\project life assist - Copy\download.jpeg" />
+    <Content Remove="wwwroot\project life assist - Copy\ER life assist.jpg" />
+    <Content Remove="wwwroot\project life assist - Copy\ER.jpg" />
+    <Content Remove="wwwroot\project life assist - Copy\FINAAAL CD.drawio.png" />
+    <Content Remove="wwwroot\project life assist - Copy\final CD.drawio.png" />
+    <Content Remove="wwwroot\project life assist - Copy\final UC.drawio.png" />
+    <Content Remove="wwwroot\project life assist - Copy\images (1).jpeg" />
+    <Content Remove="wwwroot\project life assist - Copy\life assist.docx" />
+    <Content Remove="wwwroot\project life assist - Copy\logo.png" />
+    <Content Remove="wwwroot\project life assist - Copy\oxygen_1024x1024.webp" />
+    <Content Remove="wwwroot\project life assist - Copy\oxygen_1200x1200.webp" />
+    <Content Remove="wwwroot\project life assist - Copy\Portable Oxygen Concentrator Machine - 5 Litres (Medical Supply Equipment).png" />
+    <Content Remove="wwwroot\project life assist - Copy\provide company UC.drawio.png" />
+    <Content Remove="wwwroot\project life assist - Copy\screenshot_2023-06-13_at_5.37.25_pm.webp" />
+    <Content Remove="wwwroot\project life assist - Copy\Teal and White Modern Monthly Task Gantt Graph.png" />
+    <Content Remove="wwwroot\project life assist - Copy\walker.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\project life assist - Copy\class digram.drawio.png" />
+    <None Include="wwwroot\project life assist - Copy\class lifeassist.jpg" />
+    <None Include="wwwroot\project life assist - Copy\DC UC.drawio.png" />
+    <None Include="wwwroot\project life assist - Copy\download (1).jpeg" />
+    <None Include="wwwroot\project life assist - Copy\download (2).jpeg" />
+    <None Include="wwwroot\project life assist - Copy\download.jpeg" />
+    <None Include="wwwroot\project life assist - Copy\ER life assist.jpg" />
+    <None Include="wwwroot\project life assist - Copy\ER.jpg" />
+    <None Include="wwwroot\project life assist - Copy\FINAAAL CD.drawio.png" />
+    <None Include="wwwroot\project life assist - Copy\final CD.drawio.png" />
+    <None Include="wwwroot\project life assist - Copy\final UC.drawio.png" />
+    <None Include="wwwroot\project life assist - Copy\images (1).jpeg" />
+    <None Include="wwwroot\project life assist - Copy\walker.jpeg" />
+    <None Include="wwwroot\project life assist - Copy\bed.jpeg" />
+    <None Include="wwwroot\project life assist - Copy\life assist.docx" />
+    <None Include="wwwroot\project life assist - Copy\logo.png" />
+    <None Include="wwwroot\project life assist - Copy\oxygen_1024x1024.webp" />
+    <None Include="wwwroot\project life assist - Copy\oxygen_1200x1200.webp" />
+    <None Include="wwwroot\project life assist - Copy\Portable Oxygen Concentrator Machine - 5 Litres (Medical Supply Equipment).png" />
+    <None Include="wwwroot\project life assist - Copy\provide company UC.drawio.png" />
+    <None Include="wwwroot\project life assist - Copy\screenshot_2023-06-13_at_5.37.25_pm.webp" />
+    <None Include="wwwroot\project life assist - Copy\Teal and White Modern Monthly Task Gantt Graph.png" />
+  </ItemGroup>
+
+</Project>

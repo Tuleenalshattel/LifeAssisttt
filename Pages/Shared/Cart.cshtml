@@ -1,0 +1,157 @@
+﻿@page
+@{
+    ViewData["Title"] = "Cart";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeAssist - Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .cart-container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #002855;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+            table th, table td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            table th {
+                background-color: #002855;
+                color: white;
+            }
+
+        button {
+            padding: 10px 20px;
+            background-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: red;
+            }
+
+        input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // Load the cart from localStorage
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const tableBody = document.getElementById('cart-body');
+            tableBody.innerHTML = '';
+
+            if (cart.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="5">Your cart is empty.</td></tr>';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const row = `
+                            <tr>
+                                <td>${item.name}</td>
+                                <td>${item.price} JD</td>
+                                <td><input type="number" value="${item.quantity}" onchange="updateCartItem(${index}, 'update')"></td>
+                                <td>${item.price * item.quantity} JD</td>
+                                <td><button onclick="updateCartItem(${index}, 'remove')">Remove</button></td>
+                            </tr>
+                        `;
+                tableBody.innerHTML += row;
+            });
+
+            updateTotal();
+        }
+
+        // Update cart item (quantity or remove)
+        function updateCartItem(index, action) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // If action is update (modify quantity)
+            if (action === 'update') {
+                const newQuantity = prompt("Enter new quantity:");
+                if (newQuantity === null || isNaN(newQuantity) || newQuantity <= 0) {
+                    alert("Invalid quantity.");
+                    return;
+                }
+
+                // Confirmation for update
+                const confirmUpdate = confirm("Are you sure you want to update the quantity?");
+                if (confirmUpdate) {
+                    cart[index].quantity = parseInt(newQuantity);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    loadCart();
+                }
+
+            }
+            // If action is remove (delete the item)
+            else if (action === 'remove') {
+                const confirmRemove = confirm("Are you sure you want to remove this item from your cart?");
+                if (confirmRemove) {
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    loadCart();
+                }
+            }
+        }
+
+        // Update the total price
+        function updateTotal() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('total-price').innerText = `Total: ${total} JD`;
+        }
+    </script>
+</head>
+<body onload="loadCart()">
+    <div class="cart-container">
+        <h1>Your Cart</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="cart-body">
+                <!-- Cart items will be loaded here -->
+            </tbody>
+        </table>
+        <p id="total-price"></p>
+    </div>
+</body>
+</html>
