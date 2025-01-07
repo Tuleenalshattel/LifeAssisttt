@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UqvqWWJFmUujl7IBmYC/oPOXNH0mZXLqMFzIX0vdKBw=",
+  "Hash": "lRGVcn702MxhLSqzcG8IAVjgLo+nmsQAZN/fUeOUjWk=",
   "Source": "LifeAssisttt",
   "BasePath": "_content/LifeAssisttt",
   "Mode": "Default",
@@ -1069,23 +1069,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
-    },
-    {
-      "Identity": "C:\\Users\\Toleen\\source\\repos\\LifeAssisttt\\LifeAssisttt\\wwwroot\\project life assist - Copy\\~$fe assist.docx",
-      "SourceId": "LifeAssisttt",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Toleen\\source\\repos\\LifeAssisttt\\LifeAssisttt\\wwwroot\\",
-      "BasePath": "_content/LifeAssisttt",
-      "RelativePath": "project life assist - Copy/~$fe assist.docx",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\project life assist - Copy\\~$fe assist.docx"
     }
   ]
 }

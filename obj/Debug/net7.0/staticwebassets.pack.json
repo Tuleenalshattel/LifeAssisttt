@@ -245,10 +245,6 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\Toleen\\source\\repos\\LifeAssisttt\\LifeAssisttt\\wwwroot\\project life assist - Copy\\~$fe assist.docx",
-      "PackagePath": "staticwebassets\\project life assist - Copy\\~$fe assist.docx"
-    },
-    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.LifeAssisttt.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
